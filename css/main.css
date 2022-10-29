@@ -1,0 +1,19 @@
+h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+}
+ol, ul{
+  margin: 0;
+  padding: 0;
+}
+
+.finder-result-text{
+  box-shadow: 0 5px 10px 0 rgb(201, 201, 201);
+}
+
+.buttonLink{
+  font-size: 13px !important;
+}
+
+.card{
+  box-shadow: 0 4px 10px 0 rgb(203, 203, 203);
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Movies</title>
+</head>
+<body>
+  <h1 class="visually-hidden">Movies</h1>
+  <header class="header bg-danger py-3">
+    <div class="container">
+      <h2 class="header-container-title text-white text-uppercase fs-3">All movies</h2>
+    </div>
+  </header>
+  <main class="main">
+    <section class="general-section">
+      <div class="container">
+        <div class="row py-2">
+          <div class="col-lg-3">
+            <form autocomplete="off">
+              <div class="mb-4">
+                <label for="exampleInputEmail1" class="form-label">Search by name</label>
+                <input type="text" class="input-value form-control p-3" placeholder="Enter film name" required id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-4">
+                <label for="exampleInputNumber" class="form-label">Sort by rating</label>
+                <input type="number" value="1" class="form-control p-3" id="exampleInputNumber">
+              </div>
+              <div class="mb-4">
+                <label for="exampleSelect" class="form-label">Sort by category</label>
+                <select class="form-select p-2 px-3" id="exampleSelect" aria-label="Default select example">
+                  <option value="all">All</option>
+                </select>
+              </div>
+              <button type="submit" class="search-btn btn btn-success w-100 text-uppercase fw-bold mb-4">Search</button>
+              <p class="finder-result-text rounded-2 text-center p-1 fs-5">0 ta </p>
+            </form>
+          </div>
+          <div class="col-lg-6">
+            <ul class="card-list row row-cols-1 row-cols-md-2 g-4 list-unstyled">
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer bg-danger">
+    <div class="container">
+      <h2 class="footer-title">sde</h2>
+    </div>
+  </footer>
+
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/db.js"></script>
+  <script src="./js/plugin.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
