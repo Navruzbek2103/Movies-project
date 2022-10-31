@@ -1,7 +1,7 @@
-movies.splice(50)
+movies.splice(10)
 
-let allMovies = movies.map(e =>{
-  return{
+let allMovies = movies.map(e => {
+  return {
     title: e.title,
     year: e.year,
     categories: e.categories,
@@ -18,7 +18,7 @@ let allMovies = movies.map(e =>{
 })
 // console.log(allMovies);
 
-function renderCards(){
+function renderCards() {
   allMovies.forEach(item => {
     let card = createElement(
       "li",
@@ -56,12 +56,11 @@ function renderCards(){
 renderCards()
 
 // =========== ============= categories push start ============= ============
-
-function dynamicCategory(){
+function dynamicCategory() {
   let category = [];
   allMovies.forEach(movie => {
     movie.categories.forEach(item => {
-      if(!category.includes(item)){
+      if (!category.includes(item)) {
         category.push(item)
       }
     })
@@ -75,33 +74,54 @@ function dynamicCategory(){
   })
 
 }
-
 dynamicCategory();
-
 // =========== ============= categories push end ============= ============
 
 
-// =========== ============= ============== ============ ============= ============
-
-const findFilm = (value) => {
+// ============= Searching film name, rating sort, categories sort  =============
+const findFilm = (value, ratingNum, sortCategory) => {
   return allMovies.filter(item => {
-    return item.title.match(value);
+
+    return item.title.match(value) && item.rating >= ratingNum && item.categories.includes(sortCategory);
   })
 }
 
 
-$(".search-btn").addEventListener("click", () =>{
-  $(".card-list").innerHTML = "";
+$(".form").addEventListener("submit", (e) => {
+  e.preventDefault()
+  $(".card-list").innerHTML = `
+    <div class="spinner-grow" role="status">
+      <span dataset-nimadir="" class="visually-hidden">Loading...</span>
+    </div>
+  `;
   const searchValue = $(".input-value").value.toLowerCase().trim();
+  const ratingFilm = $(".input-rating").value;
+  const categorySelected = $(".select-category").value;
+
+
   const searchText = new RegExp(searchValue, "gi");
-  const searchResult = findFilm(searchText);
-  console.log(searchResult);
-  renderResultCard(searchResult);
+  const searchResult = findFilm(searchText, ratingFilm, categorySelected);
+
+
+  setTimeout(() => {
+
+    $(".card-list").innerHTML = "";
+
+    renderResultCard(searchResult);
+    if(searchResult.length == 0){
+      let heading = createElement("h2", "result-title", "Ma'lumot topilmadi");
+      $(".card-list").appendChild(heading)
+    }
+  }, 2000);
 });
 // =========== ============= ============== ============ ============= ============
 
-function renderResultCard(allData = []){
+function renderResultCard(allData = []) {
+  let count = 0;
   allData.forEach(item => {
+    count++;
+    $(".finder-result-text").classList.remove("d-none");
+    $(".strong-tag").textContent = count;
     let card = createElement(
       "li",
       "col",

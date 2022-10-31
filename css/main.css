@@ -1,3 +1,4 @@
+
 h1, h2, h3, h4, h5, h6, p{
   margin: 0;
 }
@@ -16,4 +17,25 @@ ol, ul{
 
 .card{
   box-shadow: 0 4px 10px 0 rgb(203, 203, 203);
+}
+.card-list{
+  position: relative;
+}
+
+.result-title {
+  position: absolute;
+  top: 160px;
+  left: 60%;
+}
+
+.spinner-grow{
+  position: absolute;
+  top: 150px;
+  left: 70%;
+  width: 100px;
+  height: 100px;
+}
+
+.modal{
+  border: 1px solid red;
 }
