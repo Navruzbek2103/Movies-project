@@ -24,6 +24,17 @@ ol, ul{
   height: 100px;
 }
 
-.modal{
-  border: 1px solid red;
+.modal-wrapper{
+  background-color: rgba(0, 0, 0, .7);
+  backdrop-filter: blur(10px);
+}
+
+.modal-inner{
+  /* background-color: ; */
+  top: 25%;
+  left: 25%;
+}
+
+.close{
+  left: 89%;
 }

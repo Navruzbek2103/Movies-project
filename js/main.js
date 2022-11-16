@@ -1,4 +1,4 @@
-movies.splice(10)
+movies.splice(300)
 
 let allMovies = movies.map(e => {
   return {
@@ -43,7 +43,7 @@ function renderCards() {
               </li>
             </ul>
             <a href="${item.youtube}" class="buttonLink btn btn-danger text-uppercase fw-bold px-3">Youtube</a>
-            <button class="buttonLink btn btn-primary text-uppercase fw-bold px-3">Read more</button>
+            <button class="buttonLink btn btn-primary text-uppercase fw-bold px-3" id="readMore">Read more</button>
           </div>
         </div>
       `
@@ -52,9 +52,13 @@ function renderCards() {
   })
 
 }
-
 renderCards()
 
+function viewTime(){
+  $(".footer-title").innerHTML = new Date().getFullYear()
+
+}
+viewTime()
 // =========== ============= categories push start ============= ============
 function dynamicCategory() {
   let category = [];
@@ -145,7 +149,7 @@ function renderResultCard(allData = []) {
               </li>
             </ul>
             <a href="${item.youtube}" class="buttonLink btn btn-danger text-uppercase fw-bold px-3">Youtube</a>
-            <button class="buttonLink btn btn-primary text-uppercase fw-bold px-3">Read more</button>
+            <button class="buttonLink btn btn-primary text-uppercase fw-bold px-3" id="readMore">Read more</button>
           </div>
         </div>
       `
@@ -153,3 +157,9 @@ function renderResultCard(allData = []) {
     $(".card-list").appendChild(card)
   });
 };
+
+function closeModal(){
+  // readMore
+  console.log(readMore);
+}
+closeModal()
